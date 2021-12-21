@@ -1,4 +1,4 @@
-package com.like.wecompose
+package com.like.wecompose.ui
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.clickable
@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.like.wecompose.R
 
 @Composable
 fun WeBottomBar(selected: Int, onSelectedChanged: (Int) -> Unit) {
@@ -24,7 +25,7 @@ fun WeBottomBar(selected: Int, onSelectedChanged: (Int) -> Unit) {
         TabItem(
             iconId = R.mipmap.nav_home,
             title = "聊天",
-            tint = if (selected == 0) Color.Green else Color.Black,
+            tint = if (selected == 0) MaterialTheme.colors.error else MaterialTheme.colors.background,
             modifier = Modifier
                 .weight(1f)
                 .clickable {
@@ -34,7 +35,7 @@ fun WeBottomBar(selected: Int, onSelectedChanged: (Int) -> Unit) {
         TabItem(
             iconId = R.mipmap.nav_project,
             title = "发现",
-            tint = if (selected == 1) Color.Green else Color.Black,
+            tint = if (selected == 1) MaterialTheme.colors.error else MaterialTheme.colors.background,
             modifier = Modifier
                 .weight(1f)
                 .clickable {
@@ -44,7 +45,7 @@ fun WeBottomBar(selected: Int, onSelectedChanged: (Int) -> Unit) {
         TabItem(
             iconId = R.mipmap.nav_system,
             title = "通讯录",
-            tint = if (selected == 2) Color.Green else Color.Black,
+            tint = if (selected == 2) MaterialTheme.colors.error else MaterialTheme.colors.background,
             modifier = Modifier
                 .weight(1f)
                 .clickable {
@@ -54,7 +55,7 @@ fun WeBottomBar(selected: Int, onSelectedChanged: (Int) -> Unit) {
         TabItem(
             iconId = R.mipmap.nav_mine,
             title = "我",
-            tint = if (selected == 3) Color.Green else Color.Black,
+            tint = if (selected == 3) MaterialTheme.colors.error else MaterialTheme.colors.background,
             modifier = Modifier
                 .weight(1f)
                 .clickable {
