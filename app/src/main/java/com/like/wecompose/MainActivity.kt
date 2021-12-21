@@ -3,26 +3,32 @@ package com.like.wecompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.like.wecompose.ui.ChatPage
 import com.like.wecompose.ui.Home
 import com.like.wecompose.ui.theme.WeComposeTheme
 
+@OptIn(ExperimentalPagerApi::class)
 class MainActivity : ComponentActivity() {
+    private val viewModel: WeViewModel by viewModels()
 
-    @OptIn(ExperimentalPagerApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val viewModel: WeViewModel = viewModel()
             WeComposeTheme(viewModel.darkTheme) {
                 Box {
                     Home(viewModel)
                     ChatPage()
                 }
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (!viewModel.endChat()) {
+            super.onBackPressed()
         }
     }
 }

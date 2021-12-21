@@ -2,6 +2,7 @@ package com.like.wecompose.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -19,6 +20,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.like.wecompose.WeViewModel
 import com.like.wecompose.data.Chat
 
 @Composable
@@ -46,8 +49,13 @@ fun ChatList(chats: List<Chat>) {
 
 @Composable
 private fun ChatListItem(chat: Chat) {
+    val viewModel: WeViewModel = viewModel()
     Row(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable {
+                viewModel.startChat(chat)
+            }
     ) {
         Image(
             painter = painterResource(id = chat.friend.avatar),

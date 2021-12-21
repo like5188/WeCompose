@@ -10,6 +10,8 @@ import com.like.wecompose.data.Msg
 import com.like.wecompose.data.User
 
 class WeViewModel : ViewModel() {
+    var currentChat: Chat? by mutableStateOf(null)
+    var chatting by mutableStateOf(false)
     var darkTheme by mutableStateOf(true)
     var selectedTab by mutableStateOf(0)
     var chats by mutableStateOf(
@@ -36,4 +38,17 @@ class WeViewModel : ViewModel() {
             )
         )
     )
+
+    fun startChat(chat: Chat) {
+        chatting = true
+        currentChat = chat
+    }
+
+    fun endChat(): Boolean {
+        val result = chatting
+        if (chatting) {
+            chatting = false
+        }
+        return result
+    }
 }
