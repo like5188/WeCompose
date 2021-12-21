@@ -35,7 +35,7 @@ fun ChatList(chats: List<Chat>) {
                     Divider(
                         startIndent = 68.dp,
                         color = MaterialTheme.colors.secondary,
-                        thickness = 0.8f.dp
+                        thickness = 0.5f.dp
                     )
                 }
             }

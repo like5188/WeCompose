@@ -12,6 +12,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.like.wecompose.ui.ChatList
 import com.like.wecompose.ui.WeBottomBar
+import com.like.wecompose.ui.WeTopBar
 import com.like.wecompose.ui.theme.WeComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +21,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            WeComposeTheme(false) {
+            WeComposeTheme(true) {
                 Column {
                     val viewModel: WeViewModel = viewModel()
-                    HorizontalPager(count = 4) { page ->
+                    WeTopBar("聊天") {
+                        finish()
+                    }
+                    HorizontalPager(count = 4, modifier = Modifier.weight(1f)) { page ->
                         when (page) {
                             0 -> ChatList(viewModel.chats)
                             1 -> Box(modifier = Modifier.fillMaxSize())
