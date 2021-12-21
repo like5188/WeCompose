@@ -10,6 +10,7 @@ import com.like.wecompose.data.Msg
 import com.like.wecompose.data.User
 
 class WeViewModel : ViewModel() {
+    var darkTheme by mutableStateOf(true)
     var selectedTab by mutableStateOf(0)
     var chats by mutableStateOf(
         listOf(

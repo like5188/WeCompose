@@ -23,11 +23,12 @@ import com.like.wecompose.data.Chat
 
 @Composable
 fun ChatList(chats: List<Chat>) {
-    Box(
+    Column(
         modifier = Modifier
             .background(MaterialTheme.colors.secondary)
             .fillMaxSize()
     ) {
+        WeTopBar("聊天")
         LazyColumn(modifier = Modifier.background(MaterialTheme.colors.background)) {
             itemsIndexed(chats) { index, chat ->
                 ChatListItem(chat)

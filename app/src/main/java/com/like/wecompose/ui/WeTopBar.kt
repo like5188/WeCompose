@@ -50,6 +50,9 @@ fun WeTopBar(title: String, onBack: (() -> Unit)? = null) {
                 Icon(
                     imageVector = Icons.Default.ThumbUp, contentDescription = "切换主题",
                     modifier = Modifier
+                        .clickable {
+                            viewModel.darkTheme = !viewModel.darkTheme
+                        }
                         .align(Alignment.CenterVertically)
                         .size(36.dp)
                         .padding(8.dp),
